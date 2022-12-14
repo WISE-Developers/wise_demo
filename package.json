@@ -1,0 +1,21 @@
+{
+  "name": "base_typescript",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts":{
+    "lint": "eslint . --fix",
+    "compile": "tsc" 
+  },
+  "repository": "git@github.com:spydmobile/base_typescript.git",
+  "author": "Franco Nogarin <spydmobile@gmail.com>",
+  "license": "AGPL-3.0-or-later",
+  "private": true,
+  "dependencies": {
+    "@tsconfig/node16": "^1.0.2",
+    "@types/node": "^17.0.10",
+    "@typescript-eslint/eslint-plugin": "^5.10.1",
+    "@typescript-eslint/parser": "^5.10.1",
+    "eslint": "^8.7.0",
+    "typescript": "^4.5.5"
+  }
+}
