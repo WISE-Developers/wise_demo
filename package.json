@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts":{
-    "model": "",
+    "model": "node dist/model.js",
+    "build": "tsc",
     "lint": "eslint . --fix",
     "compile": "tsc" 
   },
