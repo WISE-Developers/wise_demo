@@ -9,33 +9,7 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 # Gather Args (Passed ENV vars from the host)
 
-ARG PSAAS_7_ENGINE_VERSION
-ARG PSAAS_7_DISTRIBUTION_LINK
-ARG PSAAS_INTERNAL_JOBS_FOLDER
-ARG PORT
-ARG EDITION
 
-# ARG PSAAS_BUILDER_MQTT_TOPIC
-# ARG PSAAS_EXTERNAL_JOBS_FOLDER
-# ARG PSAAS_BUILDER_HOST
-# ARG PSAAS_BUILDER_PORT
-# ARG PSAAS_BUILDER_MQTT_HOST 
-# ARG PSAAS_BUILDER_MQTT_PORT
-# ARG PSAAS_BUILDER_MQTT_TOPIC
-# ARG PSAAS_BUILDER_MQTT_USER 
-# ARG PSAAS_BUILDER_MQTT_PASS 
-# ARG PSAAS_BUILDER_MQTT_QOS 
-# ARG  CONTAINER_DATASET_PATH 
-# ARG  CONTAINER_DATASET_BBOXFILE 
-# ARG  CONTAINER_DATASET_LUTFILE 
-# ARG  CONTAINER_DATASET_PROJFILE 
-# ARG  CONTAINER_DATASET_ELEVATION_RASTER 
-# ARG  CONTAINER_DATASET_FUEL_RASTER 
-# ARG  PERIMETER_DISPLAY_INTERVAL_HOURS 
-# ARG  MODEL_TIMZEONE_OFFSET 
-# ARG  PSAAS_INTERNAL_RAIN_FOLDER 
-# ARG  PSAAS_PROJECT_JOBS_FOLDER 
-# ARG  CONTAINER_PSAAS_BIN_PATH 
 
 #Install Java and other software into the container
 RUN apt-get update -qq && apt-get install -qq --no-install-recommends \
@@ -57,9 +31,8 @@ RUN apt install -y nodejs
 # Install PSaaS
 # setup and decompress the psaas installer.
 RUN mkdir -p /tmp/PSaaS/
-RUN echo "PSaaS_7_DISTRIBUTION_LINK: ${PSAAS_7_DISTRIBUTION_LINK}"
 # download and copy the installer archive into the project for decompression
-RUN curl -fsSL ${PSAAS_7_DISTRIBUTION_LINK} -o /tmp/PSaaS/PSaaS.sh; 
+RUN curl -fsSL https://spyd.com/fgm.ca/WISE_Ubuntu_2022.03-01.sh -o /tmp/PSaaS/PSaaS.sh; 
 # RUN ls -lha ./
 # COPY ./PSaaS_*.sh /tmp/PSaaS/PSaaS.sh
 RUN set -eux; \
@@ -70,7 +43,7 @@ RUN set -eux; \
 	cp -r /tmp/PSaaS/PSaaS_Builder_lib /usr/bin/PSaaS_Builder_lib; 
 
 # Install the psaas binaries.
-RUN apt install -y /tmp/PSaaS/PSaaS_${PSAAS_7_ENGINE_VERSION}.deb 
+RUN apt install -y /tmp/PSaaS/PSaaS_2022.03-01.deb 
 RUN rm -rf /tmp/PSaaS;
 WORKDIR /usr/src/app
 
@@ -87,12 +60,12 @@ COPY package*.json ./
 RUN npm install
 
 # set job directory for this PSAAS container
-RUN npm config set psaas-js-api:job_directory=${PSAAS_INTERNAL_JOBS_FOLDER}
+RUN npm config set psaas-js-api:job_directory=/usr/src/app/wisedemo/wisejobs
 
 # Bundle app source
 COPY . .
-COPY config.sample.json ${PSAAS_INTERNAL_JOBS_FOLDER}/config.json
-COPY defaults.sample.json ${PSAAS_INTERNAL_JOBS_FOLDER}/defaults.json
+COPY config.sample.json /usr/src/app/wisedemo/wisejobs/config.json
+COPY defaults.sample.json /usr/src/app/wisedemo/wisejobs/defaults.json
 
 # Configure the terminal
 COPY aliasshell.sh /bin/aliasshell.sh
