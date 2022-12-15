@@ -63,13 +63,13 @@ console.log('Running the job');
     // read in the file ~/app_data/testjob/Outputs/bestSummary.txt
     // and return the contents
     console.log('Reading the results');
-    const bestSummary = fs.readFileSync('~/app_data/testjob/Outputs/bestSummary.txt', 'utf8');
+    const bestSummary = fs.readFileSync('/root/app_data/testjob/Outputs/bestSummary.txt', 'utf8');
     console.log(bestSummary);
-    const worstSummary = fs.readFileSync('~/app_data/testjob/Outputs/worstSummary.txt', 'utf8');
+    const worstSummary = fs.readFileSync('/root/app_data/testjob/Outputs/worstSummary.txt', 'utf8');
     console.log(worstSummary);
 });
-// console.log("starting the keep alive process");
-// // iife to start the keepalive process
-// (function keepProcessRunning() {
-//     setTimeout(keepProcessRunning, 1 << 30);
-//   })();
+console.log("starting the keep alive process");
+// iife to start the keepalive process
+(function keepProcessRunning() {
+    setTimeout(keepProcessRunning, 1 << 30);
+})();
