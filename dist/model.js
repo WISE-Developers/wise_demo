@@ -29,7 +29,13 @@ const fs = __importStar(require("fs-extra"));
 const child_process_1 = require("child_process");
 // clear the old results
 console.log('Clearing old results');
-fs.removeSync('~/app_data/testjob/Outputs');
+try {
+    fs.removeSync('~/app_data/testjob/Outputs');
+}
+catch (error) {
+    console.log('Error clearing old results');
+    console.log(error);
+}
 console.log('Running the job');
 (0, child_process_1.exec)("/usr/bin/psaas ~/app_data/testjob/job.fgmj --validate", (error, stdout, stderr) => {
     if (error) {
@@ -40,6 +46,19 @@ console.log('Running the job');
         console.log(`stderr: ${stderr}`);
         return;
     }
+    console.log("The job validated");
+    console.log(`stdout: ${stdout}`);
+});
+(0, child_process_1.exec)("/usr/bin/psaas ~/app_data/testjob/job.fgmj", (error, stdout, stderr) => {
+    if (error) {
+        console.log(`error: ${error.message}`);
+        return;
+    }
+    if (stderr) {
+        console.log(`stderr: ${stderr}`);
+        return;
+    }
+    console.log("The job validated");
     console.log(`stdout: ${stdout}`);
 });
 console.log("starting the keep alive process");
