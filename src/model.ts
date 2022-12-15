@@ -35,11 +35,24 @@ exec("/usr/bin/psaas ~/app_data/testjob/job.fgmj", (error, stdout, stderr) => {
         console.log(`stderr: ${stderr}`);
         return;
     }
-    console.log("The job validated");
+    console.log("The job was executed");
     console.log(`stdout: ${stdout}`);
 });
-console.log("starting the keep alive process");
-// iife to start the keepalive process
-(function keepProcessRunning() {
-    setTimeout(keepProcessRunning, 1 << 30);
-  })();
+
+
+// read in the file ~/app_data/testjob/Outputs/bestSummary.txt
+// and return the contents
+console.log('Reading the results');
+const bestSummary = fs.readFileSync('~/app_data/testjob/Outputs/bestSummary.txt', 'utf8');
+console.log(bestSummary);
+const worstSummary = fs.readFileSync('~/app_data/testjob/Outputs/worstSummary.txt', 'utf8');
+console.log(worstSummary);
+
+
+
+
+// console.log("starting the keep alive process");
+// // iife to start the keepalive process
+// (function keepProcessRunning() {
+//     setTimeout(keepProcessRunning, 1 << 30);
+//   })();
