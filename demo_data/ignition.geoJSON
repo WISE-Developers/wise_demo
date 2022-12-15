@@ -1,0 +1,32 @@
+{
+    "type": "Feature",
+    "id": "wildfire_current.fid--7c20b573_15ebf9118d9_-1d8d",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -122.733333,
+        60.9
+      ]
+    },
+    "geometry_name": "system_geometry",
+    "properties": {
+      "field_system_fire_id": "2017_nt_FS005-17",
+      "field_latitude": 60.9,
+      "field_longitude": -122.733333,
+      "field_agency_fire_id": "FS005-17",
+      "field_fire_size": 2,
+      "field_agency_fire_cause": "Natural",
+      "field_system_fire_cause": "L",
+      "field_situation_report_date": "2017-05-31T08:05:00Z",
+      "field_status_date": "2017-07-18T03:22:14Z",
+      "field_agency_data_timezone": "MDT",
+      "field_stage_of_control_status": "OUT",
+      "field_percent_contained": -1,
+      "field_response_type": "FUL",
+      "field_severity_nearest_dsr": -1,
+      "field_fire_was_prescribed": false,
+      "field_agency_preparedness_level": -1,
+      "field_fire_type_ics": -1,
+      "field_agency_code": "nt"
+    }
+  }

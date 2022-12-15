@@ -1,0 +1,11 @@
+
+version: '3.1'
+services:
+  burner:
+    build:
+      context: .
+      dockerfile: wise.Dockerfile
+    container_name: WISE-DEMO-${EDITION}
+    restart: "unless-stopped"
+    ports:
+      - ${PORT}:3000

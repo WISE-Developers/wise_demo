@@ -1,0 +1,29 @@
+name: Production - Server/Client Build/Deploy
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  deploy:
+    name: Deploy to FMD
+    runs-on: ubuntu-latest
+    steps:
+    - name: executing remote ssh commands using password
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.SERVER_HOST }}
+        username: ${{ secrets.SERVER_NAME }}
+        password: ${{ secrets.SERVER_PASS }}
+        port: ${{ secrets.SERVER_PORT }}
+        proxy_host: ${{ secrets.PROXY_HOST }}
+        proxy_username: ${{ secrets.SERVER_NAME }}
+        proxy_password: ${{ secrets.SERVER_PASS }}
+        proxy_port: ${{ secrets.SERVER_PORT }}
+        script: |
+          cd wise_demo
+          git pull
+          docker-compose up -d --build
+          
