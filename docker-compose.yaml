@@ -10,4 +10,4 @@ services:
     ports:
       - 3932:3000
     volumes:
-    - ./home/sparcsadmin/wise_demo_data/:/app_data
+    - /home/sparcsadmin/wise_demo_data/:/app_data
