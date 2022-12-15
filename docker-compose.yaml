@@ -5,8 +5,7 @@ services:
     build:
       context: .
       dockerfile: wise.Dockerfile
-    container_name: WISE-DEMO-DEVELOPER
-    restart: "unless-stopped"
+    container_name: WISE-DEMO-DEVELOPER   
     ports:
       - 3932:3000
     volumes:

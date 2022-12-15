@@ -5,7 +5,7 @@ import { exec } from 'child_process';
 // clear the old results
 console.log('Clearing old results');
 try {
-    fs.removeSync('~/app_data/testjob/Outputs');     
+    fs.removeSync('~/app_data/testjob/Outputs');
 } catch (error) {
     console.log('Error clearing old results');
     console.log(error);
@@ -37,16 +37,17 @@ exec("/usr/bin/psaas ~/app_data/testjob/job.fgmj", (error, stdout, stderr) => {
     }
     console.log("The job was executed");
     console.log(`stdout: ${stdout}`);
+    // read in the file ~/app_data/testjob/Outputs/bestSummary.txt
+    // and return the contents
+    console.log('Reading the results');
+    const bestSummary = fs.readFileSync('~/app_data/testjob/Outputs/bestSummary.txt', 'utf8');
+    console.log(bestSummary);
+    const worstSummary = fs.readFileSync('~/app_data/testjob/Outputs/worstSummary.txt', 'utf8');
+    console.log(worstSummary);
 });
 
 
-// read in the file ~/app_data/testjob/Outputs/bestSummary.txt
-// and return the contents
-console.log('Reading the results');
-const bestSummary = fs.readFileSync('~/app_data/testjob/Outputs/bestSummary.txt', 'utf8');
-console.log(bestSummary);
-const worstSummary = fs.readFileSync('~/app_data/testjob/Outputs/worstSummary.txt', 'utf8');
-console.log(worstSummary);
+
 
 
 
