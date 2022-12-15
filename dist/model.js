@@ -68,8 +68,8 @@ console.log('Running the job');
     const worstSummary = fs.readFileSync('/root/app_data/testjob/Outputs/worstSummary.txt', 'utf8');
     console.log(worstSummary);
 });
-console.log("starting the keep alive process");
-// iife to start the keepalive process
-(function keepProcessRunning() {
-    setTimeout(keepProcessRunning, 1 << 30);
-})();
+// console.log("starting the keep alive process");
+// // iife to start the keepalive process
+// (function keepProcessRunning() {
+//     setTimeout(keepProcessRunning, 1 << 30);
+//   })();

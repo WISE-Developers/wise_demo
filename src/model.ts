@@ -52,8 +52,8 @@ exec("/usr/bin/psaas ~/app_data/testjob/job.fgmj", (error, stdout, stderr) => {
 
 
 
-console.log("starting the keep alive process");
-// iife to start the keepalive process
-(function keepProcessRunning() {
-    setTimeout(keepProcessRunning, 1 << 30);
-  })();
+// console.log("starting the keep alive process");
+// // iife to start the keepalive process
+// (function keepProcessRunning() {
+//     setTimeout(keepProcessRunning, 1 << 30);
+//   })();
