@@ -5,7 +5,7 @@ import { exec } from 'child_process';
 // clear the old results
 fs.removeSync('~/app_data/test_job/Outputs'); 
 
-exec("psaas ~/app_data/test_job/job.fgmj --validate", (error, stdout, stderr) => {
+exec("/usr/bin/psaas ~/app_data/test_job/job.fgmj --validate", (error, stdout, stderr) => {
     if (error) {
         console.log(`error: ${error.message}`);
         return;
