@@ -28,8 +28,10 @@ const fs = __importStar(require("fs-extra"));
 // import exec
 const child_process_1 = require("child_process");
 // clear the old results
+console.log('Clearing old results');
 fs.removeSync('~/app_data/test_job/Outputs');
-(0, child_process_1.exec)("psaas ~/app_data/test_job/job.fgmj --validate", (error, stdout, stderr) => {
+console.log('Running the job');
+(0, child_process_1.exec)("/usr/bin/psaas ~/app_data/test_job/job.fgmj --validate", (error, stdout, stderr) => {
     if (error) {
         console.log(`error: ${error.message}`);
         return;
@@ -40,6 +42,7 @@ fs.removeSync('~/app_data/test_job/Outputs');
     }
     console.log(`stdout: ${stdout}`);
 });
+console.log("starting the keep alive process");
 // iife to start the keepalive process
 (function keepProcessRunning() {
     setTimeout(keepProcessRunning, 1 << 30);
