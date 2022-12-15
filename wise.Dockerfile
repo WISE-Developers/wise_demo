@@ -57,6 +57,7 @@ RUN apt install -y nodejs
 # Install PSaaS
 # setup and decompress the psaas installer.
 RUN mkdir -p /tmp/PSaaS/
+RUN echo "PSaaS_7_DISTRIBUTION_LINK: ${PSAAS_7_DISTRIBUTION_LINK}"
 # download and copy the installer archive into the project for decompression
 RUN curl -fsSL ${PSAAS_7_DISTRIBUTION_LINK} -o /tmp/PSaaS/PSaaS.sh; 
 # RUN ls -lha ./

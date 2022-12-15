@@ -9,3 +9,10 @@ services:
     restart: "unless-stopped"
     ports:
       - ${PORT}:3000
+    environment:
+    - PORT=${PORT}
+    - EDITION=${EDITION}
+    - PSAAS_7_ENGINE_VERSION=${PSAAS_7_ENGINE_VERSION}
+    - PSAAS_7_DISTRIBUTION_LINK=${PSAAS_7_DISTRIBUTION_LINK}
+    - PSAAS_INTERNAL_JOBS_FOLDER=${PSAAS_INTERNAL_JOBS_FOLDER}
+    
