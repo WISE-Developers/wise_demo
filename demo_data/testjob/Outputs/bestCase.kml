@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+
+  <Document>
+    <Folder>
+      <Placemark>
+        <TimeSpan>
+          <begin>2021-07-25T13:00:00-06:00</begin>
+          <end>2021-07-26T12:59:59-06:00</end>
+        </TimeSpan>
+        <name>Polygon0</name>
+        <Style>
+          <LineStyle>
+            <color>ff0000ff</color>
+            <width>1</width>
+          </LineStyle>
+          <PolyStyle>
+            <fill>0</fill>
+          </PolyStyle>
+        </Style>
+        <ExtendedData>
+          <SchemaData>
+            <SimpleData name="VERSION">Prometheus 7.2022.03.01</SimpleData>
+            <SimpleData name="SCENARIO">ZF035-21 Best Case Scenario</SimpleData>
+            <SimpleData name="DATE">2021/07/25</SimpleData>
+            <SimpleData name="TIME">13:00</SimpleData>
+            <SimpleData name="AREA">0.28</SimpleData>
+            <SimpleData name="PERIMETER">2158.6</SimpleData>
+            <SimpleData name="ACTIVE PERIMETER">2158.6</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <Polygon>
+          <outerBoundaryIs>
+            <LinearRing>
+              <coordinates>
+                -116.738265,63.072695,0
+                -116.738342,63.072351,0
+                -116.738566,63.07202,0
+                -116.738928,63.071716,0
+                -116.739414,63.071449,0
+                -116.740006,63.0712310000001,0
+                -116.74068,63.071068,0
+                -116.741411,63.070969,0
+                -116.742269,63.070932,0
+                -116.745188,63.070936,0
+                -116.748243,63.070664,0
+                -116.750121,63.070409,0
+                -116.750881,63.070376,0
+                -116.75164,63.070411,0
+                -116.75237,63.070512,0
+                -116.753043,63.070676,0
+                -116.753631,63.070896,0
+                -116.754114,63.071164,0
+                -116.754472,63.071469,0
+                -116.754692,63.071801,0
+                -116.754765,63.072145,0
+                -116.754688,63.072489,0
+                -116.754464,63.072819,0
+                -116.754103,63.073124,0
+                -116.753617,63.073391,0
+                -116.753025,63.073609,0
+                -116.752351,63.073771,0
+                -116.751619,63.073871,0
+                -116.750761,63.073908,0
+                -116.747843,63.073904,0
+                -116.744786,63.074176,0
+                -116.742909,63.074431,0
+                -116.742149,63.074464,0
+                -116.741389,63.074429,0
+                -116.740659,63.074328,0
+                -116.739987,63.074164,0
+                -116.739398,63.0739439999999,0
+                -116.738915,63.073676,0
+                -116.738557,63.07337,0
+                -116.738338,63.073039,0
+                -116.738265,63.072695,0
+              </coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+      </Placemark>
+      <Placemark>
+        <TimeSpan>
+          <begin>2021-07-26T13:00:00-06:00</begin>
+        </TimeSpan>
+        <name>Polygon1</name>
+        <Style>
+          <LineStyle>
+            <color>ff0000ff</color>
+            <width>1</width>
+          </LineStyle>
+          <PolyStyle>
+            <fill>0</fill>
+          </PolyStyle>
+        </Style>
+        <ExtendedData>
+          <SchemaData>
+            <SimpleData name="VERSION">Prometheus 7.2022.03.01</SimpleData>
+            <SimpleData name="SCENARIO">ZF035-21 Best Case Scenario</SimpleData>
+            <SimpleData name="DATE">2021/07/26</SimpleData>
+            <SimpleData name="TIME">13:00</SimpleData>
+            <SimpleData name="AREA">0.34</SimpleData>
+            <SimpleData name="PERIMETER">2332.69</SimpleData>
+            <SimpleData name="ACTIVE PERIMETER">2332.69</SimpleData>
+          </SchemaData>
+        </ExtendedData>
+        <Polygon>
+          <outerBoundaryIs>
+            <LinearRing>
+              <coordinates>
+                -116.737029770707,63.0727439979666,0
+                -116.737112014455,63.072357940465,0
+                -116.737357299472,63.0719956954384,0
+                -116.73775831461,63.0716591944958,0
+                -116.738305907715,63.0713587533239,0
+                -116.738987471845,63.0711080201163,0
+                -116.739784809067,63.0709157234777,0
+                -116.740680077549,63.0707951300477,0
+                -116.741699351517,63.0707515676859,0
+                -116.744597701632,63.0707565037732,0
+                -116.747479791093,63.0704942445282,0
+                -116.749327596782,63.0702426280174,0
+                -116.75031063393,63.0701964035083,0
+                -116.751235914728,63.0702386506298,0
+                -116.75210203323,63.0703582085229,0
+                -116.752879909174,63.0705474459007,0
+                -116.753544544545,63.0707958216475,0
+                -116.754080342449,63.0710928723292,0
+                -116.754472402206,63.0714266910339,0
+                -116.75471115455,63.071786773173,0
+                -116.754790145666,63.0721590058822,0
+                -116.754706514916,63.0725321879965,0
+                -116.754461575919,63.0728928172141,0
+                -116.754062021327,63.0732300118849,0
+                -116.753514370446,63.0735305339266,0
+                -116.752832635491,63.0737812957603,0
+                -116.752036227018,63.0739723287569,0
+                -116.751142171322,63.0740936827726,0
+                -116.750128574951,63.0741373159013,0
+                -116.747321297986,63.0741298859498,0
+                -116.744332908026,63.074396724083,0
+                -116.742496430623,63.0746473074051,0
+                -116.7415130142,63.0746935568461,0
+                -116.740586675565,63.0746513105545,0
+                -116.739720147771,63.0745316951939,0
+                -116.738943189222,63.0743424263795,0
+                -116.738277653599,63.074094092269,0
+                -116.737741451997,63.0737968021443,0
+                -116.737349178872,63.0734616644269,0
+                -116.737107656047,63.0730906963763,0
+                -116.737029770707,63.0727439979666,0
+              </coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+      </Placemark>
+      <name>Data</name>
+    </Folder>
+    <Schema id="Data.schema" name="">
+      <SimpleField name="VERSION" type="string"/>
+      <SimpleField name="SCENARIO" type="string"/>
+      <SimpleField name="IGNITION" type="string"/>
+      <SimpleField name="TIME" type="string"/>
+      <SimpleField name="AREA" type="float"/>
+      <SimpleField name="PERIMETER" type="float"/>
+      <SimpleField name="ACTIVE PERIMETER" type="float"/>
+      <SimpleField name="COLOR" type="string"/>
+      <SimpleField name="WIDTH" type="string"/>
+    </Schema>
+  </Document>
+
+</kml>

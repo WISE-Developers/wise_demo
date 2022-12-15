@@ -1,0 +1,108 @@
+{
+ "success": true,
+ "valid": true,
+ "validation_tree": {
+  "error_level": "INFORMATION",
+  "protobuf_name": "CWFGM.PSaaS",
+  "error_values": [
+   {
+    "name": "/root/app_data/testjob/job.fgmj"
+   }
+  ],
+  "children": [
+   {
+    "error_level": "INFORMATION",
+    "protobuf_name": "CWFGM.ProjectProto.Project",
+    "error_values": [
+     {
+      "name": "project"
+     }
+    ],
+    "children": [
+     {
+      "error_level": "INFORMATION",
+      "protobuf_name": "CWFGM.ProjectProto.ScenarioCollection",
+      "error_values": [
+       {
+        "name": "scenarios"
+       }
+      ],
+      "children": [
+       {
+        "error_level": "INFORMATION",
+        "protobuf_name": "CWFGM.ProjectProto.ProjectScenario",
+        "error_values": [
+         {
+          "name": "scenario"
+         }
+        ],
+        "children": [
+         {
+          "error_level": "INFORMATION",
+          "protobuf_name": "CWFGM.FireEngineProto.CwfgmScenario",
+          "error_values": [
+           {
+            "name": "scenario",
+            "value": "3"
+           }
+          ],
+          "children": [],
+          "error_id": "Deserialize.Version:NotCurrent"
+         },
+         {
+          "error_level": "INFORMATION",
+          "protobuf_name": "CWFGM.GridProto.TemporalCondition",
+          "error_values": [
+           {
+            "name": "temporalConditions",
+            "value": "1"
+           }
+          ],
+          "children": [],
+          "error_id": "Deserialize.Version:NotCurrent"
+         }
+        ]
+       },
+       {
+        "error_level": "INFORMATION",
+        "protobuf_name": "CWFGM.ProjectProto.ProjectScenario",
+        "error_values": [
+         {
+          "name": "scenario"
+         }
+        ],
+        "children": [
+         {
+          "error_level": "INFORMATION",
+          "protobuf_name": "CWFGM.FireEngineProto.CwfgmScenario",
+          "error_values": [
+           {
+            "name": "scenario",
+            "value": "3"
+           }
+          ],
+          "children": [],
+          "error_id": "Deserialize.Version:NotCurrent"
+         },
+         {
+          "error_level": "INFORMATION",
+          "protobuf_name": "CWFGM.GridProto.TemporalCondition",
+          "error_values": [
+           {
+            "name": "temporalConditions",
+            "value": "1"
+           }
+          ],
+          "children": [],
+          "error_id": "Deserialize.Version:NotCurrent"
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ "load_warnings": ""
+}
