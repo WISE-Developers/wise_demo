@@ -29,9 +29,9 @@ const fs = __importStar(require("fs-extra"));
 const child_process_1 = require("child_process");
 // clear the old results
 console.log('Clearing old results');
-fs.removeSync('~/app_data/test_job/Outputs');
+fs.removeSync('~/app_data/testjob/Outputs');
 console.log('Running the job');
-(0, child_process_1.exec)("/usr/bin/psaas ~/app_data/test_job/job.fgmj --validate", (error, stdout, stderr) => {
+(0, child_process_1.exec)("/usr/bin/psaas ~/app_data/testjob/job.fgmj --validate", (error, stdout, stderr) => {
     if (error) {
         console.log(`error: ${error.message}`);
         return;
