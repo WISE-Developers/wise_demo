@@ -1,0 +1,30 @@
+{
+    "log": {
+      "filename": "logfile.log",
+      "verbosity": "MAX"
+    },
+    "signals": {
+      "start": "start.txt",
+      "complete": "complete.txt"
+    },
+    "hardware": {
+      "processes": 4,
+      "cores": 2
+    },
+  
+      "mqtt": {
+        "hostname": "emqx",
+        "port":1883,
+        "topic": "wiseDIP2022",
+        "verbosity": "INFO",
+        "qos": 1,
+        "username": "user",
+        "password": "pass"
+      },
+    "builder": {
+      "hostname": "127.0.0.1",
+      "port": 32479,
+      "format": "JSON"
+    },
+    "exampleDirectory": "/usr/src/app/WISE_data/dipjobs/"
+  }
