@@ -1,7 +1,7 @@
 
 version: '3.1'
 services:
-  WISE:
+  wise-demo:
     build:
       context: .
       dockerfile: wise.Dockerfile
