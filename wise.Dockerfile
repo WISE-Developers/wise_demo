@@ -58,9 +58,9 @@ RUN apt install -y nodejs
 #install WISE 1.0 beta
 RUN mkdir -p /tmp/WISE/
 RUN mkdir -p /tmp/builder/
-RUN curl -fsSL https://github.com/WISE-Developers/WISE_Application/releases/download/w1.0.0-beta/wise-ubuntu2204-1.0.0-beta.deb -o /tmp/WISE/; 
+RUN curl -fsSL https://github.com/WISE-Developers/WISE_Application/releases/download/w1.0.0-beta/wise-ubuntu2204-1.0.0-beta.deb -o /tmp/WISE/wise-ubuntu2204-1.0.0-beta.deb; 
 
-RUN curl -fsSL https://github.com/WISE-Developers/WISE_Builder_Component/releases/download/Builder_1.0.0-beta/WISE_Builder-0.0.beta.zip -o /tmp/builder/; 
+RUN curl -fsSL https://github.com/WISE-Developers/WISE_Builder_Component/releases/download/Builder_1.0.0-beta/WISE_Builder-0.0.beta.zip -o /tmp/builder/WISE_Builder-0.0.beta.zip; 
 RUN unzip /tmp/builder/WISE_Builder-0.0.beta.zip -d /tmp/builder/
 RUN set -eux; \
 	unzip /tmp/builder/WISE_Builder-0.0.beta.zip -d /tmp/builder/; \
