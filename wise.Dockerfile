@@ -4,7 +4,9 @@ FROM ubuntu:focal
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 # setup timezone - the timezone where this modeler sits
-ENV TZ=America/Yellowknife
+ENV TZ=$timezone
+ARG TZ = $TZ
+
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 # Gather Args (Passed ENV vars from the host)
