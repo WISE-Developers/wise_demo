@@ -1,5 +1,5 @@
 # PSaaS Requires Ubuntu Focal while Builder does not.
-FROM ubuntu:latelet
+FROM ubuntu:latest
 
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
