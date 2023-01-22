@@ -66,9 +66,8 @@ RUN unzip /tmp/builder/WISE_Builder-0.0.beta.zip -d /tmp/builder/
 RUN set -eux; \
 	unzip -o /tmp/builder/WISE_Builder-0.0.beta.zip -d /tmp/builder/; \
 	ls -lha /tmp/builder; \
-	cp /tmp/builder/WISE_Builder-0.0.beta/WISE_Builder.jar /usr/bin; \
-	cp /tmp/PSaaS/defaults.json /usr/bin; \
-	cp -r /tmp/builder/WISE_Builder-0.0.beta/WISE_Builder_lib /usr/bin/WISE_Builder_lib; 
+	cp /tmp/builder/WISE_Builder.jar /usr/bin; \
+	cp -r /tmp/builder/WISE_Builder_lib /usr/bin/WISE_Builder_lib; 
 RUN apt install -y /tmp/WISE/wise-ubuntu2204-1.0.0-beta.deb
 RUN rm -rf /tmp/builder;
 RUN rm -rf /tmp/WISE;
