@@ -81,11 +81,7 @@ echo "-= Wildfire Intelligence and Simulation Engine =-"
   echo "_______________________________________________________________________________"
   echo $currentDate
   echo "Starting WISE Demo INSTALL for Containers"
-  echo " "
-  echo "Using configuration data:"
-  echo "========================="
-  cat .env
-   echo "_______________________________________________________________________________"
+ 
   echo " "
  # make the host data folder
  echo "Creating the host data folder..."
@@ -109,12 +105,13 @@ echo "-= Wildfire Intelligence and Simulation Engine =-"
   echo " "
   echo "Install Setup Report."
   echo "=============================================================="
+  echo " "
+  echo "Using configuration data:"
+  echo "========================="
+  cat .env
+   echo "_____________________________________________________________"
   echo "Deployed: " $currentDate
   echo "Deployment Type: Container"
-  echo "Install Host: " $HOSTNAME
-  echo "Auth Port: " $AUTH_EXPOSED_PORT
-  echo "Web Port: " $WEB_EXPOSED_PORT
-  echo "Enterprise Data Folder: " $ENTERPRISE_DATA_FOLDER
   echo "Deployed from: " $PWD
 
   elapsed=$(( SECONDS - start_time ))
