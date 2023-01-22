@@ -5,6 +5,7 @@ services:
     build:
       context: .
       dockerfile: wise.Dockerfile
+    image: wise_demo_latest
     container_name: ${CONTAINER_NAME}   
     ports:
       - ${EXTERNAL_PORT}:3000
