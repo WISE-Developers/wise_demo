@@ -4,11 +4,13 @@
   "main": "index.js",
   "scripts": {
     "model": "node dist/model.js",
+    "test-wise":"node dist/test.wise.js",
+    "test-builder":"node dist/test.builder.js",    
     "build": "tsc",
     "lint": "eslint . --fix",
     "compile": "tsc"
   },
-  "repository": "git@github.com:spydmobile/base_typescript.git",
+  "repository": "https://github.com/WISE-Developers/wise_demo.git",
   "author": "Franco Nogarin <spydmobile@gmail.com>",
   "license": "AGPL-3.0-or-later",
   "private": true,

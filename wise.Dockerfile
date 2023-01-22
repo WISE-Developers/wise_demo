@@ -102,5 +102,5 @@ SHELL ["/bin/aliasshell.sh"]
 # CMD [ "node","copyvars.js" ]
 
 # Launch builder and GUI to run in the background.
-CMD ["npm", "run", "model"]
+CMD ["npm", "run", "test-wise"]
 
