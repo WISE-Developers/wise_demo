@@ -64,7 +64,7 @@ RUN curl -fsSL https://github.com/WISE-Developers/WISE_Application/releases/down
 RUN curl -fsSL https://github.com/WISE-Developers/WISE_Builder_Component/releases/download/Builder_1.0.0-beta/WISE_Builder-0.0.beta.zip -o /tmp/builder/WISE_Builder-0.0.beta.zip; 
 RUN unzip /tmp/builder/WISE_Builder-0.0.beta.zip -d /tmp/builder/
 RUN set -eux; \
-	unzip /tmp/builder/WISE_Builder-0.0.beta.zip -d /tmp/builder/; \
+	unzip -o /tmp/builder/WISE_Builder-0.0.beta.zip -d /tmp/builder/; \
 	ls -lha /tmp/builder; \
 	cp /tmp/builder/WISE_Builder-0.0.beta/WISE_Builder.jar /usr/bin; \
 	cp /tmp/PSaaS/defaults.json /usr/bin; \
