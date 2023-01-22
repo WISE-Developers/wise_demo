@@ -5,8 +5,8 @@ services:
     build:
       context: .
       dockerfile: wise.Dockerfile
-    container_name: WISE-DEMO-DEVELOPER   
+    container_name: ${CONTAINER_NAME}   
     ports:
-      - 3932:3000
+      - ${EXTERNAL_PORT}:3000
     volumes:
-    - /home/sparcsadmin/wise_demo_data/:/root/app_data
+    - ${HOST_DATA_FOLDER}:/root/app_data

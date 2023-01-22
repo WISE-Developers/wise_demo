@@ -1,4 +1,4 @@
-# WISE Demo
+# WISE 1.0.0-beta Demo
 
 This is a simple container that runs the wise engine for a single model and writes its outputs to outputs
 
@@ -7,34 +7,30 @@ the docker-only branch does not use github CI/CD Build pipeline.
 to use this test in your environment:
 
 clone the repo
-checkout the container-only branch
+checkout the wise_container branch
 
-edit the ```docker-compose.yaml``` file and change the volumes section:
+edit the ```.env``` file and change the HOST_DATA_FOLDER section:
 
-```docker
-volumes:
-    - /home/sparcsadmin/wise_demo_data/:/root/app_data
+```shell
+HOST_DATA_FOLDER=/home/sparcsadmin/wisedemo_data
 ```
 
 to match a folder on the container host. so if on the host folder you are sharing with your container is:
 
-```/home/myuser/myfolder``` then your modified ```docker-compose.yaml``` file would look like:
+```/home/myuser/myfolder``` then your modified HOST_DATA_FOLDER section in ```.env``` file would look like:
 
-```docker
-volumes:
-    - /home/myuser/myfolder:/root/app_data
+```shell
+HOST_DATA_FOLDER=/home/myuser/myfolder
 ```
 
-Now you need to do a recursive copy the of test job folder to the shared folder:
+Now you need to run the installer
 
 eg:
-```cp -R ./demo_data/testjob /home/myuser/myfolder```
+```sh install_container.sh```
 
-once you have done that, build and bring up the container.
+this will setup the project, build the image, and launch the container with the new image.
 
-```run docker-compose up -d --build```
-
-this will run the container and exit.
+The container will run and exit displaying the outputs onthe screen
 
 afterward, examine the container logs, they should look like this:
 
