@@ -35,21 +35,39 @@ RUN apt install -y nodejs
 
 # Install PSaaS
 # setup and decompress the psaas installer.
-RUN mkdir -p /tmp/PSaaS/
+#RUN mkdir -p /tmp/PSaaS/
 # download and copy the installer archive into the project for decompression
-RUN curl -fsSL https://spyd.com/fgm.ca/WISE_Ubuntu_2022.03-01.sh -o /tmp/PSaaS/PSaaS.sh; 
+#RUN curl -fsSL https://spyd.com/fgm.ca/WISE_Ubuntu_2022.03-01.sh -o /tmp/PSaaS/PSaaS.sh; 
 # RUN ls -lha ./
 # COPY ./PSaaS_*.sh /tmp/PSaaS/PSaaS.sh
-RUN set -eux; \
-	sh  /tmp/PSaaS/PSaaS.sh --noexec --target /tmp/PSaaS; \
-	ls -lha /tmp/PSaaS; \
-	cp /tmp/PSaaS/PSaaS_Builder.jar /usr/bin; \
-	cp /tmp/PSaaS/defaults.json /usr/bin; \
-	cp -r /tmp/PSaaS/PSaaS_Builder_lib /usr/bin/PSaaS_Builder_lib; 
+#RUN set -eux; \
+#	sh  /tmp/PSaaS/PSaaS.sh --noexec --target /tmp/PSaaS; \
+#	ls -lha /tmp/PSaaS; \
+#	cp /tmp/PSaaS/PSaaS_Builder.jar /usr/bin; \
+#	cp /tmp/PSaaS/defaults.json /usr/bin; \
+#	cp -r /tmp/PSaaS/PSaaS_Builder_lib /usr/bin/PSaaS_Builder_lib; 
 
 # Install the psaas binaries.
-RUN apt install -y /tmp/PSaaS/PSaaS_2022.03-01.deb 
-RUN rm -rf /tmp/PSaaS;
+# RUN apt install -y /tmp/PSaaS/PSaaS_2022.03-01.deb 
+# RUN rm -rf /tmp/PSaaS;
+# WORKDIR /usr/src/app
+
+#install WISE 1.0 beta
+RUN mkdir -p /tmp/WISE/
+RUN mkdir -p /tmp/builder/
+RUN curl -fsSL https://github.com/WISE-Developers/WISE_Application/releases/download/w1.0.0-beta/wise-ubuntu2204-1.0.0-beta.deb -o /tmp/WISE/; 
+
+RUN curl -fsSL https://github.com/WISE-Developers/WISE_Builder_Component/releases/download/Builder_1.0.0-beta/WISE_Builder-0.0.beta.zip -o /tmp/builder/; 
+RUN unzip /tmp/builder/WISE_Builder-0.0.beta.zip -d /tmp/builder/
+RUN set -eux; \
+	unzip /tmp/builder/WISE_Builder-0.0.beta.zip -d /tmp/builder/; \
+	ls -lha /tmp/builder; \
+	cp /tmp/builder/WISE_Builder-0.0.beta/WISE_Builder.jar /usr/bin; \
+	cp /tmp/PSaaS/defaults.json /usr/bin; \
+	cp -r /tmp/builder/WISE_Builder-0.0.beta/WISE_Builder_lib /usr/bin/WISE_Builder_lib; 
+RUN apt install -y /tmp/WISE/wise-ubuntu2204-1.0.0-beta.deb
+RUN rm -rf /tmp/builder;
+RUN rm -rf /tmp/WISE;
 WORKDIR /usr/src/app
 
 # work around bug in openssl (remove the last line in config)
