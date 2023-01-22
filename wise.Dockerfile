@@ -7,7 +7,8 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 ARG DEMO_TIMEZONE
 ENV TZ $DEMO_TIMEZONE
 
-
+ARG HOST_JOBS_FOLDER
+ENV HOST_JOBS_FOLDER $HOST_JOBS_FOLDER
 
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
@@ -64,12 +65,12 @@ COPY package*.json ./
 RUN npm install
 
 # set job directory for this PSAAS container
-RUN npm config set psaas-js-api:job_directory=/usr/src/app/wisedemo/wisejobs
+RUN npm config set psaas-js-api:job_directory=/usr/src/app/wisedemo/$HOST_JOBS_FOLDER
 RUN echo "Copying files...."
 # Bundle app source
 COPY . .
-COPY config.sample.json /usr/src/app/wisedemo/wisejobs/config.json
-COPY defaults.sample.json /usr/src/app/wisedemo/wisejobs/defaults.json
+COPY config.sample.json /usr/src/app/wisedemo/$HOST_JOBS_FOLDER/config.json
+COPY defaults.sample.json /usr/src/app/wisedemo/$HOST_JOBS_FOLDER/defaults.json
 
 # Configure the terminal
 COPY aliasshell.sh /bin/aliasshell.sh

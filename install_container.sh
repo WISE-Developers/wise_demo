@@ -92,12 +92,12 @@ echo "-= Wildfire Intelligence and Simulation Engine =-"
  mkdir -p $HOST_DATA_FOLDER
  #  do a recursive copy the of test job folder to the shared folder:
  echo "Copying the test job to the shared folder..."
- cp -R ./demo_data/testjob $HOST_DATA_FOLDER/$HOST_JOBS_FOLDER
+ cp -R ./demo_data/testjob $HOST_DATA_FOLDER
 
 
 
   echo "Bringing the stack up..."
-  docker-compose up -d --build ;
+  docker-compose up -d  ;
   if [ $? -ne 0 ]; then
     echo "Error bringing the stack up. Exiting."
     exit 1
