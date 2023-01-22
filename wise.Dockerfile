@@ -25,6 +25,7 @@ RUN apt-get update -qq && apt-get install -qq --no-install-recommends \
 	htop \
 	build-essential \ 
 	zip \
+	unzip \
 	software-properties-common \ 
 	dirmngr \ 
 	curl \
