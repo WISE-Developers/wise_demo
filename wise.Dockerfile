@@ -4,8 +4,10 @@ FROM ubuntu:focal
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 # setup timezone - the timezone where this modeler sits
-ARG TZ=$DEMO_TIMEZONE
-ENV TZ = $TZ
+ARG DEMO_TIMEZONE
+ENV TZ $DEMO_TIMEZONE
+
+
 
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
