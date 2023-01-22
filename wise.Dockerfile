@@ -15,9 +15,9 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 # Gather Args (Passed ENV vars from the host)
 
 # install missing utilities
-RUN apt-get update && apt-get install -y gnupg
+# RUN apt-get update && apt-get install -y gnupg
 # sort out some keys
-RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 871920D1991BC93C
+# RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 871920D1991BC93C
 
 #Install Java and other software into the container
 RUN apt-get update -qq && apt-get install -qq --no-install-recommends \
