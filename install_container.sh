@@ -102,7 +102,7 @@ echo "-= Wildfire Intelligence and Simulation Engine =-"
     echo "Pulling the latest images..."
     docker-compose pull
     echo "Bringing the stack up..."
-    docker-compose up --build -d --no-cache
+    docker-compose up --build -d --force-recreate
   else
     docker-compose up --build -d
   fi
