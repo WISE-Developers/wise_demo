@@ -43,6 +43,16 @@ async function modelLogic () {
         console.log(worstSummary);
         console.log("ENVIRONMENT",process.env);
         console.log("CWD",process.cwd());
+         exec("env", (error, stdout, stderr) => {
+            if (error || stderr) {
+                console.log(`error: ${error?.message}`);
+                console.log(`stderr: ${stderr}`);
+                process.exit(1);
+                return;
+            }
+            
+            console.log(`Environment was: ${stdout}`);
+        });
 
 
     });
