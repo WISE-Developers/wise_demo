@@ -4,8 +4,11 @@ services:
   wise-demo:
     environment:
       - CONTAINER_NAME=${CONTAINER_NAME}
+      - HOST_JOBS_FOLDER=${HOST_JOBS_FOLDER}
     build:
       context: .
+      args:
+        HOST_JOBS_FOLDER: $HOST_JOBS_FOLDER
       dockerfile: wise.Dockerfile
     image: wise_demo_latest
     container_name: ${CONTAINER_NAME}   
