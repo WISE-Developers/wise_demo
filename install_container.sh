@@ -91,7 +91,7 @@ echo "-= Wildfire Intelligence and Simulation Engine =-"
  cp -R ./demo_data/testjob $HOST_DATA_FOLDER
  echo "Copying the BUILDER test data to the shared folder..."
  cp -R ./demo_data/builder_test_data $HOST_DATA_FOLDER/builder-inputs
-
+ mkdir -p $HOST_DATA_FOLDER/$HOST_JOBS_FOLDER
 
   echo "Bringing the stack up..."
   # if $DISABLE_BUILD_CACHE is true, then do the next 3 commands. 
