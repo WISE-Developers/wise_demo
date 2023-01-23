@@ -93,7 +93,10 @@ echo "-= Wildfire Intelligence and Simulation Engine =-"
 
 
   echo "Bringing the stack up..."
-  docker-compose up -d  --build;
+  docker-compose rm -f
+  docker-compose pull
+  docker-compose up --build -d
+  
   if [ $? -ne 0 ]; then
     echo "Error bringing the stack up. Exiting."
     exit 1
