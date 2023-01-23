@@ -3,7 +3,7 @@ version: '3.1'
 services:
   wise-demo:
     environment:
-      - CONTAINER_NAME=${CONTAINER_NAME}
+      - CONTAINER_NAME=${CONTAINER_NAME}-WISE
       - HOST_JOBS_FOLDER=${HOST_JOBS_FOLDER}
     build:
       context: .
@@ -11,8 +11,23 @@ services:
         HOST_JOBS_FOLDER: $HOST_JOBS_FOLDER
       dockerfile: wise.Dockerfile
     image: wise_demo_latest
-    container_name: ${CONTAINER_NAME}   
+    container_name: ${CONTAINER_NAME}-WISE   
     ports:
-      - ${EXTERNAL_PORT}:3000
+      - ${WISE_EXTERNAL_PORT}:3000
+    volumes:
+    - ${HOST_DATA_FOLDER}:/root/app_data
+  builder-demo:
+    environment:
+      - CONTAINER_NAME=${CONTAINER_NAME}-BUILDER
+      - HOST_JOBS_FOLDER=${HOST_JOBS_FOLDER}
+    build:
+      context: .
+      args:
+        HOST_JOBS_FOLDER: $HOST_JOBS_FOLDER
+      dockerfile: wise_builer.Dockerfile
+    image: builder_demo_latest
+    container_name: ${CONTAINER_NAME}-BUILDER   
+    ports:
+      - ${BUILDER_EXTERNAL_PORT}:3000
     volumes:
     - ${HOST_DATA_FOLDER}:/root/app_data

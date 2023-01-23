@@ -87,9 +87,10 @@ echo "-= Wildfire Intelligence and Simulation Engine =-"
  echo "Creating the host data folder..."
  mkdir -p $HOST_DATA_FOLDER
  #  do a recursive copy the of test job folder to the shared folder:
- echo "Copying the test job to the shared folder..."
+ echo "Copying the WISE test job to the shared folder..."
  cp -R ./demo_data/testjob $HOST_DATA_FOLDER
-
+ echo "Copying the BUILDER test data to the shared folder..."
+ cp -R ./demo_data/builder_test_data $HOST_DATA_FOLDER/builder-inputs
 
 
   echo "Bringing the stack up..."
