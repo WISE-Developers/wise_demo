@@ -94,6 +94,7 @@ COPY . .
 COPY config.sample.json /root/app_data/$HOST_JOBS_FOLDER/config.json
 RUN sed "s#JOBS-FOLDER-TEMPLATE#$HOST_JOBS_FOLDER#g" -i /root/app_data/$HOST_JOBS_FOLDER/config.json;
 COPY defaults.sample.json /root/app_data/$HOST_JOBS_FOLDER/defaults.json
+RUN ls -lha /root/app_data/$HOST_JOBS_FOLDER/;
 
 # Configure the terminal
 COPY aliasshell.sh /bin/aliasshell.sh
