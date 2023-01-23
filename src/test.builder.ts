@@ -11,6 +11,14 @@ try {
     console.log(error);
 }
 
+
+
+
+
+
+
+
+
 async function modelLogic () {
     console.log('Running the job');
     await exec("/usr/bin/wise ~/app_data/testjob/job.fgmj --validate", (error, stdout, stderr) => {
