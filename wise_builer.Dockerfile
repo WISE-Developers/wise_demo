@@ -86,12 +86,14 @@ COPY package*.json ./
 RUN npm install
 
 # set job directory for this PSAAS container
-RUN npm config set psaas-js-api:job_directory=/usr/src/app/wisedemo/$HOST_JOBS_FOLDER
+
+RUN npm config set psaas-js-api:job_directory=/root/app_data/$HOST_JOBS_FOLDER
 RUN echo "Copying files...."
 # Bundle app source
 COPY . .
-COPY config.sample.json /usr/src/app/wisedemo/$HOST_JOBS_FOLDER/config.json
-COPY defaults.sample.json /usr/src/app/wisedemo/$HOST_JOBS_FOLDER/defaults.json
+COPY config.sample.json /root/app_data/$HOST_JOBS_FOLDER/config.json
+RUN sed "s#JOBS-FOLDER-TEMPLATE#$HOST_JOBS_FOLDER#g" -i /root/app_data/$HOST_JOBS_FOLDER/config.json;
+COPY defaults.sample.json /root/app_data/$HOST_JOBS_FOLDER/defaults.json
 
 # Configure the terminal
 COPY aliasshell.sh /bin/aliasshell.sh

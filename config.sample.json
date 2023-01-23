@@ -15,7 +15,7 @@
       "mqtt": {
         "hostname": "emqx",
         "port":1883,
-        "topic": "wiseDIP2022",
+        "topic": "wiseDemo2023",
         "verbosity": "INFO",
         "qos": 1,
         "username": "user",
@@ -26,5 +26,5 @@
       "port": 32479,
       "format": "JSON"
     },
-    "exampleDirectory": "/usr/src/app/WISE_data/dipjobs/"
+    "exampleDirectory": "/root/app/WISE_data/JOBS-FOLDER-TEMPLATE/"
   }
