@@ -1,22 +1,19 @@
 # WISE 1.0.0-beta Demo
 
-This is a simple container that runs the wise engine for a single model and writes its outputs to outputs
+This is a simple container that can:
 
-the docker-only branch does not use github CI/CD Build pipeline.
+- Run the wise engine for a single re-defined model (FGMJ File) and writes its outputs to the shared folder
+only the main branch is using the CICD Build pipeline.
+to use these tests/demo in your environment:
+- clone the repo
+- checkout the  wise_latest branch to work with the most recent release of WISE.
+- edit the ```.env``` file and change the HOST_DATA_FOLDER section:
 
-to use this test in your environment:
-
-clone the repo
-checkout the wise_container branch
-
-edit the ```.env``` file and change the HOST_DATA_FOLDER section:
-
-```shell
-HOST_DATA_FOLDER=/home/sparcsadmin/wisedemo_data
+```txt
+HOST_DATA_FOLDER=/path/to/wise/demo_data
 ```
 
 to match a folder on the container host. so if on the host folder you are sharing with your container is:
-
 ```/home/myuser/myfolder``` then your modified HOST_DATA_FOLDER section in ```.env``` file would look like:
 
 ```shell
@@ -24,14 +21,10 @@ HOST_DATA_FOLDER=/home/myuser/myfolder
 ```
 
 Now you need to run the installer
-
 eg:
 ```sh install_container.sh```
-
 this will setup the project, build the image, and launch the container with the new image.
-
 The container will run and exit displaying the outputs onthe screen
-
 afterward, examine the container logs, they should look like this:
 
 ```docker
@@ -44,10 +37,10 @@ stdout:
 The job was executed
 stdout: 
 Reading the results
+Prometheus Fire Growth Model (Version 1.0.0-beta released on 2023-01-18)
 
-Prometheus Fire Growth Model (Version 7.2022.03.01 released on 2022-03-20)
 FGM File Name: job
-Date of Report: December 15, 2022 20:50
+Date of Report: January 22, 2023 15:50
 
 Simulation Settings:
  Scenario Inputs:
@@ -63,6 +56,7 @@ Simulation Settings:
    wthrstn5: wthrstrm5   [July 25, 2021 00:00:00] - [August  4, 2021 00:59:59]
   Comments:
   This is the best case Scenario
+
  Burning Conditions:
   Date           Start       End   HISI >  HFWI >    WS >    RH <
   2021/07/25  00:00:00  23:59:59       0      19    0.00      95
@@ -94,15 +88,19 @@ Landscape Properties:
   Cell Size (m): 250.0
   Columns and Rows: 199 x 189
   Grid Size: 49.75 km x 47.25 km
+
  Location of Lower Left Corner:
   62.809148�,-117.111409�
+
  Elevation Statistics (m):
   Min:    156.0
   Max:    324.0
   Mean:   214.0
   Median: 214.0
+
  Time Zone Settings:
   Time Zone: MDT Mountain Daylight Time -6:00:00
+
  Project Comments:
 
 Landscape Grids:
@@ -149,23 +147,15 @@ Weather Station:
    Using calculated FWI System values
   Method of Hourly FFMC Calculation:
 
+n
+
 Weather Patches:
- Name: wthrptch10
-  Start Time: July 25, 2021 13:00:00
-  End Time:   July 26, 2021 13:00:00
-  Operations:
-   Temperature -= 5.0°
-   RH += 5.0%
-  Comments:
-    ZF035-21 Best Case Patch
 
 Weather Grids:
  Name: wthrptch10
-  Start Time:        July 25, 2021 13:00:00
-  End Time:          July 26, 2021 13:00:00
-  Start Time of Day: 00:00:00
-  End Time of Day:   00:00:00
-  Comments:
+  Start Time: July 25, 2021 13:00:00
+  End Time:   July 26, 2021 13:00:00
+   Comments:
     ZF035-21 Best Case Patch
 
 Ignitions:
@@ -174,10 +164,11 @@ Ignitions:
   Ignition Type: Polygon
   Comments:
 
-Prometheus Fire Growth Model (Version 7.2022.03.01 released on 2022-03-20)
+Prometheus Fire Growth Model (Version 1.0.0-beta released on 2023-01-18)
 
 FGM File Name: job
-Date of Report: December 15, 2022 20:50
+Date of Report: January 22, 2023 15:50
+
 Simulation Settings:
  Scenario Inputs:
   Name: ZF035-21 Worst Case Scenario
@@ -192,6 +183,7 @@ Simulation Settings:
    wthrstn5: wthrstrm5   [July 25, 2021 00:00:00] - [August  4, 2021 00:59:59]
   Comments:
   This is the worst case Scenario
+
  Burning Conditions:
   Date           Start       End   HISI >  HFWI >    WS >    RH <
   2021/07/25  00:00:00  23:59:59       0      19    0.00      95
@@ -217,26 +209,33 @@ Simulation Settings:
   Perimeter resolution (Grid Cells): Dynamic
   Stop fire spread at data boundary:   False
   Purge non-displayable time steps:    False
+
 Landscape Properties:
  Grid Information:
   Cell Size (m): 250.0
   Columns and Rows: 199 x 189
   Grid Size: 49.75 km x 47.25 km
+
  Location of Lower Left Corner:
   62.809148�,-117.111409�
+
  Elevation Statistics (m):
   Min:    156.0
   Max:    324.0
   Mean:   214.0
   Median: 214.0
+
  Time Zone Settings:
   Time Zone: MDT Mountain Daylight Time -6:00:00
+
  Project Comments:
+
 Landscape Grids:
  Projection:     dataset
  Fuel Grid:      fuels
  Look-up Table:  Inputs/dataset.lut
  Elevation Grid: elevation
+
 Fuel Patches:
  Landscape Fuel Type Patch:
  Polygon Fuel Type Patch:
@@ -251,6 +250,7 @@ Active Fuel Types :
  118: Water (Non-fuel) [ ]
 
 Active Fuel Types (modified):
+
 Weather Station:
  Name: wthrstn5
  Coordinates:  63.072420�,-116.746515�
@@ -274,26 +274,20 @@ Weather Station:
    Using calculated FWI System values
   Method of Hourly FFMC Calculation:
 
+
 Weather Patches:
+
+Weather Grids:
  Name: wthrptch11
   Start Time: July 25, 2021 13:00:00
   End Time:   July 26, 2021 13:00:00
-  Operations:
-   Temperature += 5.0°
-   RH -= 5.0%
-  Comments:
+   Comments:
     ZF035-21 Worst Case Patch
-Weather Grids:
- Name: wthrptch11
-  Start Time:        July 25, 2021 13:00:00
-  End Time:          July 26, 2021 13:00:00
-  Start Time of Day: 00:00:00
-  End Time of Day:   00:00:00
-  Comments:
-    ZF035-21 Worst Case Patch
+
 Ignitions:
  Name: ign5
   Start Time: July 25, 2021 13:00:00
   Ignition Type: Polygon
-  Comments:     
+  Comments:
+  
 ```
