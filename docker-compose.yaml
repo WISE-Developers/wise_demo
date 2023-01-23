@@ -2,6 +2,8 @@
 version: '3.1'
 services:
   wise-demo:
+    environment:
+      - CONTAINER_NAME=${CONTAINER_NAME}
     build:
       context: .
       dockerfile: wise.Dockerfile
