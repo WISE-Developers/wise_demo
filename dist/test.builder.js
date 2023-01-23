@@ -44,6 +44,7 @@ wise_js_api_1.client.JobManager.setDefaults({
     username: serverConfig.mqttUsername,
     password: serverConfig.mqttPassword
 });
+console.log("WISE Configuration:", serverConfig);
 //uncomment this line for exceptions to be thrown when invalid values are set
 //globals.SocketMsg.inlineThrowOnError = true;
 //the directory of the test files
