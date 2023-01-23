@@ -7,6 +7,7 @@
     "test-wise": "node dist/test.wise.js",
     "test-builder": "node dist/test.builder.js",
     "test-service": "node dist/test.service.js",
+    "copy-configs": "sh copyConfigs.sh",
     "build": "tsc",
     "lint": "eslint . --fix",
     "start-services": "sh runService.sh",
