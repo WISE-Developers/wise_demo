@@ -9,7 +9,10 @@
     "test-service": "node dist/test.service.js",
     "build": "tsc",
     "lint": "eslint . --fix",
+    "start-services": "sh runService.sh",
+    "builderonly": "/usr/bin/java -jar /usr/bin/WISE_Builder.jar -j /root/app_data/wisedemo_jobs/ &",
     "compile": "tsc"
+
   },
   "repository": "https://github.com/WISE-Developers/wise_demo.git",
   "author": "Franco Nogarin <spydmobile@gmail.com>",
