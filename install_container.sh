@@ -106,9 +106,6 @@ echo "-= Wildfire Intelligence and Simulation Engine =-"
     docker-compose up --build -d
   fi
 
-  docker-compose rm -f
-  docker-compose pull
-  docker-compose up --build -d
   
   if [ $? -ne 0 ]; then
     echo "Error bringing the stack up. Exiting."
