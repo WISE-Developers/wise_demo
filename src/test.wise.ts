@@ -41,17 +41,8 @@ async function modelLogic () {
         console.log(bestSummary);
         const worstSummary = fs.readFileSync('/root/app_data/testjob/Outputs/worstSummary.txt', 'utf8');
         console.log(worstSummary);
-
-         exec("env", (error, stdout, stderr) => {
-            if (error || stderr) {
-                console.log(`error: ${error?.message}`);
-                console.log(`stderr: ${stderr}`);
-                process.exit(1);
-                return;
-            }
-            
-            console.log(`Environment was: ${stdout}`);
-        });
+        console.log("ENVIRONMENT",process.env);
+        console.log("CWD",process.cwd());
 
 
     });
