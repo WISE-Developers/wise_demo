@@ -93,7 +93,20 @@ echo "-= Wildfire Intelligence and Simulation Engine =-"
 
 
   echo "Bringing the stack up..."
-  docker-compose up -d  --build;
+  # if $DISABLE_BUILD_CACHE is true, then do the next 3 commands. 
+  # Otherwise, just do the docker-compose up command
+  if [ "$DISABLE_BUILD_CACHE" = true ]; then
+    echo "Build cache disabled. Removing the stack..."
+    docker-compose rm -f
+    echo "Pulling the latest images..."
+    docker-compose pull
+    echo "Bringing the stack up..."
+    docker-compose up --build -d
+  else
+    docker-compose up --build -d
+  fi
+
+  
   if [ $? -ne 0 ]; then
     echo "Error bringing the stack up. Exiting."
     exit 1
