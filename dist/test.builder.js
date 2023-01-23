@@ -38,19 +38,20 @@ wise_js_api_1.globals.SocketHelper.initialize(serverConfig.builderAddress, serve
 wise_js_api_1.globals.WISELogger.getInstance().setLogLevel(wise_js_api_1.globals.WISELogLevel.DEBUG);
 //set the default MQTT broker to use when listening for W.I.S.E. events
 wise_js_api_1.client.JobManager.setDefaults({
-    host: serverConfig.mqttAddress,
-    port: serverConfig.mqttPort,
-    topic: serverConfig.mqttTopic,
-    username: serverConfig.mqttUsername,
-    password: serverConfig.mqttPassword
+    host: "emqx.vm.sparcsonline.com",
+    port: 1883,
+    topic: "wise-1-beta-builder",
+    username: "psaasuser",
+    password: "psaaspass" // serverConfig.mqttPassword
 });
-console.log("WISE Configuration:", serverConfig);
+console.log("WISE Configuration:", wise_js_api_1.client.JobManager);
 //uncomment this line for exceptions to be thrown when invalid values are set
 //globals.SocketMsg.inlineThrowOnError = true;
 //the directory of the test files
-const localDir = serverConfig.exampleDirectory;
+//const localDir = serverConfig.exampleDirectory;
+const localDir = `/root/app_data/wisedemo_jobs/`;
 //the version of the example data to use
-const wiseVersion = /*vers*/ '6.2.6.0' /*/vers*/;
+const wiseVersion = /*vers*/ '1.0.0-beta' /*/vers*/;
 //make sure the local directory has been configured
 if (localDir.includes('@JOBS@')) {
     console.log("The job directory has not been configured. Please edit the job directory before running the example server.");

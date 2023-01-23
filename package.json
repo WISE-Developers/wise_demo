@@ -6,6 +6,7 @@
     "model": "node dist/model.js",
     "test-wise": "node dist/test.wise.js",
     "test-builder": "node dist/test.builder.js",
+    "test-service": "node dist/test.service.js",
     "build": "tsc",
     "lint": "eslint . --fix",
     "compile": "tsc"

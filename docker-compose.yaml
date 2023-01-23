@@ -24,10 +24,24 @@ services:
       context: .
       args:
         HOST_JOBS_FOLDER: $HOST_JOBS_FOLDER
-      dockerfile: wise_builer.Dockerfile
+      dockerfile: wise_builder.Dockerfile
     image: builder_demo_latest
     container_name: ${CONTAINER_NAME}-BUILDER   
     ports:
       - ${BUILDER_EXTERNAL_PORT}:3000
+    volumes:
+    - ${HOST_DATA_FOLDER}:/root/app_data
+
+  service-demo:
+    environment:
+      - CONTAINER_NAME=${CONTAINER_NAME}-SERVICE
+      - HOST_JOBS_FOLDER=${HOST_JOBS_FOLDER}
+    build:
+      context: .
+      args:
+        HOST_JOBS_FOLDER: $HOST_JOBS_FOLDER
+      dockerfile: wise_service.Dockerfile
+    image: wise_demo_latest_service
+    container_name: ${CONTAINER_NAME}-SERVICE   
     volumes:
     - ${HOST_DATA_FOLDER}:/root/app_data

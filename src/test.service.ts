@@ -16,15 +16,14 @@ globals.SocketHelper.initialize(serverConfig.builderAddress, serverConfig.builde
 globals.WISELogger.getInstance().setLogLevel(globals.WISELogLevel.DEBUG);
 //set the default MQTT broker to use when listening for W.I.S.E. events
 client.JobManager.setDefaults({
-    host: "emqx.vm.sparcsonline.com", //serverConfig.mqttAddress,
-    port: 1883, // serverConfig.mqttPort,
-    topic: "wise-1-beta-builder",//serverConfig.mqttTopic,
-    username: "psaasuser", // serverConfig.mqttUsername,
-    password: "psaaspass" // serverConfig.mqttPassword
+    host: serverConfig.mqttAddress,
+    port: serverConfig.mqttPort,
+    topic: serverConfig.mqttTopic,
+    username: serverConfig.mqttUsername,
+    password: serverConfig.mqttPassword
 });
 
-
-console.log("WISE Configuration:", client.JobManager);
+console.log("WISE Configuration:", serverConfig);
 //uncomment this line for exceptions to be thrown when invalid values are set
 //globals.SocketMsg.inlineThrowOnError = true;
 //the directory of the test files
@@ -815,3 +814,8 @@ function handleErrorNode(node: globals.ValidationError) {
     }
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 })().then(x => console.log("Job created, waiting for results."));
+console.log("starting the keep alive process");
+// iife to start the keepalive process
+(function keepProcessRunning() {
+    setTimeout(keepProcessRunning, 1 << 30);
+  })();
