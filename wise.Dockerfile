@@ -77,7 +77,7 @@ RUN set -eux; \
 	ls -lha /tmp/builder; \
 	cp /tmp/builder/WISE_Builder.jar /usr/bin; \
 	cp -r /tmp/builder/WISE_Builder_lib /usr/bin/WISE_Builder_lib; 
-RUN apt install -y wise-ubuntu2204.deb
+RUN apt install -y /tmp/WISE/wise-ubuntu2204.deb
 RUN rm -rf /tmp/builder;
 RUN rm -rf /tmp/WISE;
 WORKDIR /usr/src/app
