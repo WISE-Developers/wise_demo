@@ -13,6 +13,6 @@ services:
     image: wise_demo_latest
     container_name: ${CONTAINER_NAME}   
     ports:
-      - ${EXTERNAL_PORT}:3000
+      - ${WISE_EXTERNAL_PORT}:3000
     volumes:
     - ${HOST_DATA_FOLDER}:/root/app_data
