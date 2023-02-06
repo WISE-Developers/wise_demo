@@ -59,16 +59,22 @@ RUN apt install -y nodejs
 #install WISE 1.0 beta
 RUN mkdir -p /tmp/WISE/
 RUN mkdir -p /tmp/builder/
-RUN curl -fsSL https://github.com/WISE-Developers/WISE_Application/releases/download/w1.0.0-beta/wise-ubuntu2204-1.0.0-beta.deb -o /tmp/WISE/wise-ubuntu2204-1.0.0-beta.deb; 
+# RUN curl -fsSL https://github.com/WISE-Developers/WISE_Application/releases/download/w1.0.0-beta/wise-ubuntu2204-1.0.0-beta.deb -o /tmp/WISE/wise-ubuntu2204-1.0.0-beta.deb; 
+# trick to get the latest wise-ubuntu2204 deb
+RUN eval wget $(curl -s https://api.github.com/repos/WISE-Developers/WISE_Application/releases/latest  | grep browser_download_url | grep ubuntu2204 | cut -d : -f 2,3) -o /tmp/WISE/wise-ubuntu2204.deb
 
-RUN curl -fsSL https://github.com/WISE-Developers/WISE_Builder_Component/releases/download/Builder_1.0.0-beta/WISE_Builder-0.0.beta.zip -o /tmp/builder/WISE_Builder-0.0.beta.zip; 
-RUN unzip /tmp/builder/WISE_Builder-0.0.beta.zip -d /tmp/builder/
+# trick to get the latest builder
+eval wget $(curl -s https://api.github.com/repos/WISE-Developers/WISE_Builder_Component/releases/latest  | grep browser_download_url | cut -d : -f 2,3) -o  /tmp/builder/latest_builder.zip
+
+
+# RUN curl -fsSL https://github.com/WISE-Developers/WISE_Builder_Component/releases/download/Builder_1.0.0-beta/WISE_Builder-0.0.beta.zip -o /tmp/builder/WISE_Builder-0.0.beta.zip; 
+RUN unzip /tmp/builder/latest_builder.zip -d /tmp/builder/
 RUN set -eux; \
-	unzip -o /tmp/builder/WISE_Builder-0.0.beta.zip -d /tmp/builder/; \
+	unzip -o /tmp/builder/latest_builder.zip -d /tmp/builder/; \
 	ls -lha /tmp/builder; \
 	cp /tmp/builder/WISE_Builder.jar /usr/bin; \
 	cp -r /tmp/builder/WISE_Builder_lib /usr/bin/WISE_Builder_lib; 
-RUN apt install -y /tmp/WISE/wise-ubuntu2204-1.0.0-beta.deb
+RUN apt install -y wise-ubuntu2204.deb
 RUN rm -rf /tmp/builder;
 RUN rm -rf /tmp/WISE;
 WORKDIR /usr/src/app
