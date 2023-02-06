@@ -31,6 +31,7 @@ RUN apt-get update -qq && apt-get install -qq --no-install-recommends \
 	curl \
 	apt-transport-https \
 	nano \ 
+	wget \
 	&& rm -rf /var/lib/apt/lists/*
 
 # Install NPM and NODEJS
