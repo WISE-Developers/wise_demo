@@ -62,11 +62,13 @@ RUN mkdir -p /tmp/WISE/
 RUN mkdir -p /tmp/builder/
 # RUN curl -fsSL https://github.com/WISE-Developers/WISE_Application/releases/download/w1.0.0-beta/wise-ubuntu2204-1.0.0-beta.deb -o /tmp/WISE/wise-ubuntu2204-1.0.0-beta.deb; 
 # trick to get the latest wise-ubuntu2204 deb
-RUN eval wget $(curl -s https://api.github.com/repos/WISE-Developers/WISE_Application/releases/latest  | grep browser_download_url | grep ubuntu2204 | cut -d : -f 2,3) -o /tmp/WISE/wise-ubuntu2204.deb
+# RUN eval wget $(curl -s https://api.github.com/repos/WISE-Developers/WISE_Application/releases/latest  | grep browser_download_url | grep ubuntu2204 | cut -d : -f 2,3) -o /tmp/WISE/wise-ubuntu2204.deb
+RUN DA_LATEST_APP=$(curl -s https://api.github.com/repos/WISE-Developers/WISE_Builder_Component/releases/latest  | grep browser_download_url | cut -d : -f 2,3 | tr -d '"') ; wget $DA_LATEST_APP -O /tmp/builder/latest_builder.zip
+
 
 # trick to get the latest builder
-RUN eval wget $(curl -s https://api.github.com/repos/WISE-Developers/WISE_Builder_Component/releases/latest  | grep browser_download_url | cut -d : -f 2,3) -o  /tmp/builder/latest_builder.zip
-
+# RUN eval wget $(curl -s https://api.github.com/repos/WISE-Developers/WISE_Builder_Component/releases/latest  | grep browser_download_url | cut -d : -f 2,3) -o  /tmp/builder/latest_builder.zip
+RUN DA_LATEST_BUILDER=$(curl -s https://api.github.com/repos/WISE-Developers/WISE_Builder_Component/releases/latest  | grep browser_download_url | cut -d : -f 2,3 | tr -d '"') ; wget $DA_LATEST_BUILDER -O /tmp/builder/latest_builder.zip
 
 # RUN curl -fsSL https://github.com/WISE-Developers/WISE_Builder_Component/releases/download/Builder_1.0.0-beta/WISE_Builder-0.0.beta.zip -o /tmp/builder/WISE_Builder-0.0.beta.zip; 
 RUN unzip /tmp/builder/latest_builder.zip -d /tmp/builder/
