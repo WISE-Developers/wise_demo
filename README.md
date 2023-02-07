@@ -1,10 +1,16 @@
-# WISE 1.0.0-beta Demo
+# WISE 1.0.x-beta Demo
 
-This is a simple container that can:
+## What it does
 
-- Run the wise engine for a single re-defined model (FGMJ File) and writes its outputs to the shared folder
-only the main branch is using the CICD Build pipeline.
-to use these tests/demo in your environment:
+This will spin up 2 containers, one on Ubuntu 20.04 FOCAL and one on Ubuntu 22.04 and will sue the most recent release or developer release of WISE 1.x.x
+
+These are simple containers that:
+
+- Run the wise engine for a single well-defined model (FGMJ File) and writes its outputs to the shared folder.
+
+## How to use it
+
+To use these tests/demo in your environment:
 - clone the repo
 - checkout the  wise_latest branch to work with the most recent release of WISE.
 - edit the ```.env``` file and change the HOST_DATA_FOLDER section:
@@ -22,10 +28,14 @@ HOST_DATA_FOLDER=/home/myuser/myfolder
 
 Now you need to run the installer
 eg:
-```sh install_container.sh```
-this will setup the project, build the image, and launch the container with the new image.
-The container will run and exit displaying the outputs onthe screen
-afterward, examine the container logs, they should look like this:
+
+```shell
+sh install_container.sh
+```
+
+this will setup the project, build the images, and launch the containers with the new images.
+
+Each container will run and exit displaying the outputs on in the container logs. If you examine the container logs, they should look like this:
 
 ```docker
 > base_typescript@1.0.0 model

@@ -1,7 +1,7 @@
 
 version: '3.1'
 services:
-  wise-demo:
+  wise-demo-ubuntu-2204:
     environment:
       - CONTAINER_NAME=${CONTAINER_NAME}
       - HOST_JOBS_FOLDER=${HOST_JOBS_FOLDER}
@@ -9,9 +9,25 @@ services:
       context: .
       args:
         HOST_JOBS_FOLDER: $HOST_JOBS_FOLDER
-      dockerfile: wise.Dockerfile
-    image: wise_demo_latest
-    container_name: ${CONTAINER_NAME}   
+      dockerfile: wise_ubuntu_2204.Dockerfile
+    image: wise_ubuntu_2204_demo_latest
+    container_name: ${CONTAINER_NAME}-U-2204   
+    ports:
+      - ${WISE_EXTERNAL_PORT}:3000
+    volumes:
+    - ${HOST_DATA_FOLDER}:/root/app_data
+
+  wise-demo-ubuntu-2004:
+    environment:
+      - CONTAINER_NAME=${CONTAINER_NAME}
+      - HOST_JOBS_FOLDER=${HOST_JOBS_FOLDER}
+    build:
+      context: .
+      args:
+        HOST_JOBS_FOLDER: $HOST_JOBS_FOLDER
+      dockerfile: wise_ubuntu_2004.Dockerfile
+    image: wise_ubuntu_2204_demo_latest
+    container_name: ${CONTAINER_NAME}-U-2004   
     ports:
       - ${WISE_EXTERNAL_PORT}:3000
     volumes:
