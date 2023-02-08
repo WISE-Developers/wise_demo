@@ -42,6 +42,7 @@ async function modelLogic() {
         if (error || stderr) {
             console.log(`error: ${error?.message}`);
             console.log(`stderr: ${stderr}`);
+            console.log(JSON.stringify(error, ["message", "arguments", "type", "name"]));
             process.exit(1);
             return;
         }
@@ -51,6 +52,7 @@ async function modelLogic() {
     (0, child_process_1.exec)("/usr/bin/wise ~/app_data/testjob/job.fgmj", (error, stdout, stderr) => {
         if (error) {
             console.log(`error: ${error.message}`);
+            console.log(JSON.stringify(error, ["message", "arguments", "type", "name"]));
             return;
         }
         if (stderr) {
