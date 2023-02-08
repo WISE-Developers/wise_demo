@@ -29,7 +29,7 @@ services:
       args:
         HOST_JOBS_FOLDER: $HOST_JOBS_FOLDER
       dockerfile: wise_ubuntu_2004.Dockerfile
-    image: wise_ubuntu_2204_demo_latest
+    image: wise_ubuntu_2004_demo_latest
     container_name: ${CONTAINER_NAME}-U-2004   
     ports:
       - ${WISE_EXTERNAL_PORT}:3000
@@ -45,7 +45,7 @@ services:
       args:
         HOST_JOBS_FOLDER: $HOST_JOBS_FOLDER
       dockerfile: wise_ubuntu_2004-171.Dockerfile
-    image: wise_ubuntu_2204_demo_latest
+    image: wise_ubuntu_2204_demo_latest-171
     depends_on:
       wise-demo-ubuntu-2204:
         condition: service_completed_successfully
