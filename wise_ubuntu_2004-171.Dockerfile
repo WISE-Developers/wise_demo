@@ -24,7 +24,6 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 RUN apt-get update -qq && apt-get install -qq --no-install-recommends \
 	openjdk-16-jre \
 	htop \
-	build-essential \ 
 	zip \
 	unzip \
 	software-properties-common \ 
