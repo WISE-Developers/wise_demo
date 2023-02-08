@@ -35,3 +35,22 @@ services:
       - ${WISE_EXTERNAL_PORT}:3000
     volumes:
     - ${HOST_DATA_FOLDER}:/root/app_data
+  
+  wise-demo-ubuntu-2004-test-bug-171:
+    environment:
+      - CONTAINER_NAME=${CONTAINER_NAME}
+      - HOST_JOBS_FOLDER=${HOST_JOBS_FOLDER}
+    build:
+      context: .
+      args:
+        HOST_JOBS_FOLDER: $HOST_JOBS_FOLDER
+      dockerfile: wise_ubuntu_2004-171.Dockerfile
+    image: wise_ubuntu_2204_demo_latest
+    depends_on:
+      wise-demo-ubuntu-2204:
+        condition: service_completed_successfully
+    container_name: ${CONTAINER_NAME}-U-2004-171   
+    ports:
+      - ${WISE_EXTERNAL_PORT}:3000
+    volumes:
+    - ${HOST_DATA_FOLDER}:/root/app_data
