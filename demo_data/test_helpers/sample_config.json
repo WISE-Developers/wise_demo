@@ -1,0 +1,20 @@
+{
+    "log": {
+        "filename": "logfile.log",
+        "verbosity": "WARN"
+    },
+    "signals": {
+        "start": "start.txt",
+        "complete": "complete.txt"
+    },
+    "hardware": {
+        "processes": 1,
+        "cores": 2
+    },
+    "builder": {
+        "hostname": "127.0.0.1",
+        "port": 32479
+    },
+    "exampleDirectory": "/opt/jobs/examples",
+    "alreadyV2": true
+}
